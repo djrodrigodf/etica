@@ -405,7 +405,7 @@ return [
     ],
     'hiring' => [
         'title'          => 'Contratação PS',
-        'title_singular' => 'Contratação P',
+        'title_singular' => 'Contratação PS',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',

@@ -40,27 +40,27 @@ class StoreConstructionRequest extends FormRequest
                 'array',
             ],
             'iss' => [
-                'numeric',
+                'nullable',
             ],
             'tax' => [
-                'numeric',
+                'nullable',
             ],
             'partner_percentage' => [
-                'numeric',
+                'nullable',
             ],
             'role' => [
                 'string',
                 'nullable',
             ],
             'administration_fee' => [
-                'numeric',
+                'nullable',
             ],
             'public_notice_number' => [
                 'string',
                 'nullable',
             ],
             'average_discount' => [
-                'numeric',
+                'nullable',
             ],
             'budget_base_date' => [
                 'date_format:' . config('panel.date_format'),

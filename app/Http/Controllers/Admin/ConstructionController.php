@@ -9,6 +9,7 @@ use App\Http\Requests\StoreConstructionRequest;
 use App\Http\Requests\UpdateConstructionRequest;
 use App\Models\BusinessPartner;
 use App\Models\Construction;
+use App\Traits\Tricks;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,6 +40,14 @@ class ConstructionController extends Controller
 
     public function store(StoreConstructionRequest $request)
     {
+        $request['iss'] = Tricks::money($request['iss']);
+        $request['tax'] = Tricks::money($request['tax']);
+        $request['partner_percentage'] = Tricks::money($request['partner_percentage']);
+        $request['administration_fee'] = Tricks::money($request['administration_fee']);
+        $request['reserve_fund'] = Tricks::money($request['reserve_fund']);
+        $request['average_discount'] = Tricks::money($request['average_discount']);
+        $request['contract_value'] = Tricks::money($request['contract_value']);
+        $request['policy_value'] = Tricks::money($request['policy_value']);
         $construction = Construction::create($request->all());
         $construction->teams()->sync($request->input('teams', []));
 
@@ -58,6 +67,14 @@ class ConstructionController extends Controller
 
     public function update(UpdateConstructionRequest $request, Construction $construction)
     {
+        $request['iss'] = Tricks::money($request['iss']);
+        $request['tax'] = Tricks::money($request['tax']);
+        $request['partner_percentage'] = Tricks::money($request['partner_percentage']);
+        $request['administration_fee'] = Tricks::money($request['administration_fee']);
+        $request['reserve_fund'] = Tricks::money($request['reserve_fund']);
+        $request['average_discount'] = Tricks::money($request['average_discount']);
+        $request['contract_value'] = Tricks::money($request['contract_value']);
+        $request['policy_value'] = Tricks::money($request['policy_value']);
         $construction->update($request->all());
         $construction->teams()->sync($request->input('teams', []));
 

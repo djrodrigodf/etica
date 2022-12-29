@@ -171,6 +171,11 @@
                 {{ trans('cruds.construction.title') }}
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#file_manager" role="tab" data-toggle="tab">
+                Arquivos
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="partner_admissions">
@@ -184,6 +189,9 @@
         </div>
         <div class="tab-pane" role="tabpanel" id="team_constructions">
             @includeIf('admin.businessPartners.relationships.teamConstructions', ['constructions' => $businessPartner->teamConstructions])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="file_manager">
+            @includeIf('components.filemanager')
         </div>
     </div>
 </div>

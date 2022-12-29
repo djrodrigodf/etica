@@ -32,7 +32,7 @@ class StoreBusinessPartnerRequest extends FormRequest
             ],
             'ie' => [
                 'string',
-                'required',
+                'nullable',
                 'unique:business_partners',
             ],
             'phone' => [

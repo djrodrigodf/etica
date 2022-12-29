@@ -13,6 +13,7 @@ use App\Models\Company;
 use App\Models\Construction;
 use App\Models\Occupation;
 use App\Models\Salary;
+use Carbon\Carbon;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -85,6 +86,7 @@ class AdmissionController extends Controller
 
     public function update(UpdateAdmissionRequest $request, Admission $admission)
     {
+        $request['date_declaration'] = Carbon::now()->format('d/m/Y');
         $admission->update($request->all());
 
         return redirect()->route('admin.admissions.index');

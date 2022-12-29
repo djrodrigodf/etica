@@ -12,6 +12,7 @@ use App\Models\Company;
 use App\Models\Construction;
 use App\Models\Hiring;
 use App\Models\Occupation;
+use App\Traits\Tricks;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,6 +55,11 @@ class HiringController extends Controller
 
     public function store(StoreHiringRequest $request)
     {
+        $request['salary'] = Tricks::money($request['salary']);
+        $request['health_plan'] = Tricks::money($request['health_plan']);
+        $request['vehicle_rental'] = Tricks::money($request['vehicle_rental']);
+        $request['laptop_rental'] = Tricks::money($request['laptop_rental']);
+        $request['phone_plan'] = Tricks::money($request['phone_plan']);
         $hiring = Hiring::create($request->all());
 
         return redirect()->route('admin.hirings.index');
@@ -78,6 +84,11 @@ class HiringController extends Controller
 
     public function update(UpdateHiringRequest $request, Hiring $hiring)
     {
+        $request['salary'] = Tricks::money($request['salary']);
+        $request['health_plan'] = Tricks::money($request['health_plan']);
+        $request['vehicle_rental'] = Tricks::money($request['vehicle_rental']);
+        $request['laptop_rental'] = Tricks::money($request['laptop_rental']);
+        $request['phone_plan'] = Tricks::money($request['phone_plan']);
         $hiring->update($request->all());
 
         return redirect()->route('admin.hirings.index');
