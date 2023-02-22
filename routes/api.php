@@ -27,4 +27,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Third Party Registration
     Route::apiResource('third-party-registrations', 'ThirdPartyRegistrationApiController');
+
+    // Transfer
+    Route::apiResource('transfers', 'TransferApiController');
 });

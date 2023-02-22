@@ -13,7 +13,7 @@ class CreateBusinessPartnersTable extends Migration
             $table->string('name');
             $table->string('company_name')->nullable();
             $table->string('cnpj_cpf')->unique();
-            $table->string('ie')->unique()->nullable();
+            $table->string('ie')->unique();
             $table->string('phone');
             $table->string('email');
             $table->string('zip_code');

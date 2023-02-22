@@ -179,6 +179,16 @@
                 </ul>
             </li>
         @endcan
+        @can('transfer_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.transfers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/transfers") || request()->is("admin/transfers/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-user-cog c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.transfer.title') }}
+                </a>
+            </li>
+        @endcan
         @php($unread = \App\Models\QaTopic::unreadCount())
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.messenger.index") }}" class="{{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "c-active" : "" }} c-sidebar-nav-link">

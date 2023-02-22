@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use \DateTimeInterface;
 use App\Traits\Auditable;
 use Carbon\Carbon;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Construction extends Model
 {
-    use SoftDeletes;
-    use Auditable;
-    use HasFactory;
+    use SoftDeletes, Auditable, HasFactory;
+
+    public $table = 'constructions';
 
     public const SITUATION_SELECT = [
         'Em andamento' => 'Em andamento',
@@ -27,8 +27,6 @@ class Construction extends Model
         'tipo 1' => 'tipo 1',
         'tipo 2' => 'tipo 2',
     ];
-
-    public $table = 'constructions';
 
     protected $dates = [
         'budget_base_date',
@@ -74,6 +72,11 @@ class Construction extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 
     public function constructionHirings()
     {
@@ -138,10 +141,5 @@ class Construction extends Model
     public function setStartOrderDateAttribute($value)
     {
         $this->attributes['start_order_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
-    }
-
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
     }
 }

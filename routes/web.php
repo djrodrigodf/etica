@@ -87,6 +87,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('third-party-registrations/process-csv-import', 'ThirdPartyRegistrationController@processCsvImport')->name('third-party-registrations.processCsvImport');
     Route::resource('third-party-registrations', 'ThirdPartyRegistrationController');
 
+    // Transfer
+    Route::delete('transfers/destroy', 'TransferController@massDestroy')->name('transfers.massDestroy');
+    Route::resource('transfers', 'TransferController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');

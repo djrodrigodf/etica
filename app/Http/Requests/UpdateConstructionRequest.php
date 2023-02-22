@@ -40,27 +40,27 @@ class UpdateConstructionRequest extends FormRequest
                 'array',
             ],
             'iss' => [
-                'nullable',
+                'numeric',
             ],
             'tax' => [
-                'nullable',
+                'numeric',
             ],
             'partner_percentage' => [
-                'nullable',
+                'numeric',
             ],
             'role' => [
                 'string',
                 'nullable',
             ],
             'administration_fee' => [
-                'nullable',
+                'numeric',
             ],
             'public_notice_number' => [
                 'string',
                 'nullable',
             ],
             'average_discount' => [
-                'nullable',
+                'numeric',
             ],
             'budget_base_date' => [
                 'date_format:' . config('panel.date_format'),
@@ -97,7 +97,6 @@ class UpdateConstructionRequest extends FormRequest
             'cnpj_branch' => [
                 'string',
                 'nullable',
-                'cnpj'
             ],
             'construction_site_city' => [
                 'string',

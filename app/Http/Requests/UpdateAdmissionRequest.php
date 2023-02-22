@@ -55,7 +55,6 @@ class UpdateAdmissionRequest extends FormRequest
             ],
             'uf' => [
                 'string',
-                'uf',
                 'nullable',
             ],
             'gender' => [
@@ -88,7 +87,6 @@ class UpdateAdmissionRequest extends FormRequest
             'spouse_cpf' => [
                 'string',
                 'nullable',
-                'cpf'
             ],
             'spouse_rg' => [
                 'string',
