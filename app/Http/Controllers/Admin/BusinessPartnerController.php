@@ -73,7 +73,11 @@ class BusinessPartnerController extends Controller
 
     public function massDestroy(MassDestroyBusinessPartnerRequest $request)
     {
-        BusinessPartner::whereIn('id', request('ids'))->delete();
+        $businessPartners = BusinessPartner::find(request('ids'));
+
+        foreach ($businessPartners as $businessPartner) {
+            $businessPartner->delete();
+        }
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

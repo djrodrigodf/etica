@@ -405,7 +405,7 @@ return [
     ],
     'hiring' => [
         'title'          => 'Contratação PS',
-        'title_singular' => 'Contratação PS',
+        'title_singular' => 'Contratação P',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',
@@ -481,4 +481,27 @@ return [
             'deleted_at_helper'    => ' ',
         ],
     ],
+    'transfer' => [
+        'title'          => 'Transferencia de Funcionarios',
+        'title_singular' => 'Transferencia de Funcionario',
+        'fields'         => [
+            'id'                      => 'ID',
+            'id_helper'               => ' ',
+            'obra'                    => 'Obra',
+            'obra_helper'             => ' ',
+            'business_partner'        => 'Parceiro de Negocio',
+            'business_partner_helper' => ' ',
+            'date_start'              => 'Data inicio',
+            'date_start_helper'       => ' ',
+            'date_end'                => 'Data Fim',
+            'date_end_helper'         => ' ',
+            'created_at'              => 'Created at',
+            'created_at_helper'       => ' ',
+            'updated_at'              => 'Updated at',
+            'updated_at_helper'       => ' ',
+            'deleted_at'              => 'Deleted at',
+            'deleted_at_helper'       => ' ',
+        ],
+    ],
+
 ];

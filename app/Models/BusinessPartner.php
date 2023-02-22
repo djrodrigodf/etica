@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use \DateTimeInterface;
 use App\Traits\Auditable;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BusinessPartner extends Model
 {
-    use SoftDeletes;
-    use Auditable;
-    use HasFactory;
+    use SoftDeletes, Auditable, HasFactory;
 
     public $table = 'business_partners';
 
@@ -42,6 +40,11 @@ class BusinessPartner extends Model
         'deleted_at',
     ];
 
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
+
     public function partnerAdmissions()
     {
         return $this->hasMany(Admission::class, 'partner_id', 'id');
@@ -60,10 +63,5 @@ class BusinessPartner extends Model
     public function teamConstructions()
     {
         return $this->belongsToMany(Construction::class);
-    }
-
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
     }
 }

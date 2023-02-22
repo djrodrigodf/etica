@@ -28,18 +28,16 @@ class UpdateBusinessPartnerRequest extends FormRequest
             'cnpj_cpf' => [
                 'string',
                 'required',
-                'cpf_ou_cnpj',
                 'unique:business_partners,cnpj_cpf,' . request()->route('business_partner')->id,
             ],
             'ie' => [
                 'string',
-                'nullable',
+                'required',
                 'unique:business_partners,ie,' . request()->route('business_partner')->id,
             ],
             'phone' => [
                 'string',
                 'required',
-                'celular_com_ddd'
             ],
             'email' => [
                 'required',
@@ -47,7 +45,6 @@ class UpdateBusinessPartnerRequest extends FormRequest
             'zip_code' => [
                 'string',
                 'required',
-                'formato_cep'
             ],
             'address' => [
                 'string',
@@ -72,7 +69,6 @@ class UpdateBusinessPartnerRequest extends FormRequest
             'state' => [
                 'string',
                 'required',
-                'uf'
             ],
             'country' => [
                 'string',
